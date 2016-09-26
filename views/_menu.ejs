@@ -11,7 +11,10 @@
                 <% if(!session.user){ %>
                     <span><a href="/login">Iniciar sesión</a></span>
                 <% } else { %>
-                    <span><%= session.user.username %><a href="/logout">Cerrar sesión</a></span>
+                    <ul id="dropdown-login" class="dropdown-content">
+                        <li><a href="/logout">Cerrar sesión</a></li>
+                    </ul>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown-login"><%= session.user.username %><i class="material-icons right">arrow_drop_down</i></a></li>
                 <% } %>
             </li>
 
