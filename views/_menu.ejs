@@ -2,9 +2,12 @@
     <div class="nav-wrapper brown darken-2">
         <a href="/" class="brand-logo"><img id="logo" src="/images/logo-blanco.png" alt=""></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/usuarios">Usuarios</a></li>
-            <li><a href="/puertas">Puertas</a></li>
-            <li><a href="/registro">Registro</a></li>
+
+            <% if(session.user){ %>
+                <li><a href="/usuarios">Usuarios</a></li>
+                <li><a href="/puertas">Puertas</a></li>
+                <li><a href="/registro">Registro</a></li>
+            <% } %>
 
             <!-- Botón de login -->
             <li>
