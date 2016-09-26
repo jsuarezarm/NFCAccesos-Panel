@@ -1,0 +1,84 @@
+body {
+  /*padding: 50px;*/
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+
+  background-color: #bcaaa4;
+}
+
+a {
+  /*color: #00B7FF;*/
+}
+
+#logo{
+    /*width: 11%;*/
+    height: 62px;
+}
+
+#portada-titulo{
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    text-align: center;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}
+
+/*#portada-titulo h1, #portada h2{
+    text-align: center;
+}*/
+
+#portada img{
+    width: 100%;
+    z-index: 0;
+    position: relative;
+}
+
+#portada h1{
+    font-size: 7em;
+}
+
+.pagsec h1{
+    font-size: 3em;
+    text-align: center;
+}
+
+.page-footer{
+    /*z-index: 110;*/
+    /*position: absolute;*/
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#collapsible-adduser, #collapsible-addpuerta{
+    background-color: #fff;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    /*text-align: center;*/
+}
+
+#collapsible-adduser .collapsible-body, #collapsible-addpuerta .collapsible-body{
+    /*margin-right: auto;
+    margin-left: auto;*/
+    text-align: center;
+}
+
+.edit-form{
+    background-color: #fff;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    /*text-align: center;*/
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.edit-form *{
+    text-align: center;
+}
+
+.edit-form h2{
+    font-size: 2em;
+}

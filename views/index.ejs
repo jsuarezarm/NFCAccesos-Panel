@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <% include _head.ejs %>
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/js/materialize.min.js"></script>
+
+        <% include _menu.ejs %>
+
+        <div id="portada">
+            <div id=portada-titulo>
+                <h1>NFC Accesos</h1>
+                <h2>Panel de administración</h2>
+            </div>
+            <img src="images/portada3.jpg" alt="Imagen de la portada">
+        </div>
+
+        <% include _footer.ejs %>
+    </body>
 </html>
