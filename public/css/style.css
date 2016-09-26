@@ -82,3 +82,12 @@ a {
 .edit-form h2{
     font-size: 2em;
 }
+
+#pag-error{
+    text-align: center;
+    color: black;
+}
+
+#pag-error a{
+    color: black;
+}
