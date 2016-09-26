@@ -1,0 +1,32 @@
+<form class="col s12" method="post" action="addpuerta">
+    <div class="row">
+        <div class="input-field col s4">
+          <input id="idpuerta" type="text" class="validate" name="idpuerta">
+          <label for="idpuerta">ID puerta</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="descripcion" type="text" class="validate" name="descripcion">
+          <label for="descripcion">Descripción</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="localizacion" type="text" class="validate" name="localizacion">
+          <label for="localizacion">Localización</label>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn waves-effect waves-light" onclick="limpiarCampos()">Cancelar
+            <i class="material-icons right">cancel</i>
+        </button>
+        <button class="btn waves-effect waves-light" type="submit">Añadir
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+</form>
+
+<script>
+    function limpiarCampos(){
+        document.getElementById("idpuerta").value = "";
+        document.getElementById("descripcion").value = "";
+        document.getElementById("localizacion").value = "";
+    }
+</script>

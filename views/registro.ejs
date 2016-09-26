@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <% include _head.ejs %>
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/js/materialize.min.js"></script>
+
+        <% include _menu.ejs %>
+
+        <div id="log" class="pagsec">
+            <h1>Registro de accesos</h1>
+        </div>
+
+        <div class="row">
+            <div class="col s1"></div>
+            <div class="col s10">
+                <table class="striped centered bordered">
+                    <thead>
+                        <tr>
+                            <th data-field="fecha">Fecha</th>
+                            <th data-field="hora">Hora</th>
+                            <th data-field="usuario">Usuario</th>
+                            <th data-field="puerta">Puerta</th>
+                            <th data-field="acierto">Acierto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(intentos != null){ %>
+                            <% for(var i = 0; i < Object.keys(intentos).length; i++){ %>
+                                <% var tmp = Object.keys(intentos)[i] %>
+                                <tr>
+                                    <td><%= tmp[0] + "" + tmp[1] + "/" + tmp[2] + "" + tmp[3] + "/" + "" + tmp[4] + "" + tmp[5] + "" + tmp[6] + "" + tmp[7] %></td>
+                                    <td><%= tmp[8] + "" + tmp[9] + ":" + tmp[10] + "" + tmp[11] + ":" + tmp[12] + "" + tmp[13] %></td>
+                                    <td><%= intentos[Object.keys(intentos)[i]].usuario %></td>
+                                    <td><%= intentos[Object.keys(intentos)[i]].puerta %></td>
+                                    <td><%= intentos[Object.keys(intentos)[i]].acierto %></td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col s1"></div>
+        </div>
+
+        <% include _footer.ejs %>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <% include _head.ejs %>
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/js/materialize.min.js"></script>
+
+        <% include _menu.ejs %>
+
+        <div id="puertas" class="pagsec">
+            <h1>Puertas</h1>
+        </div>
+
+        <ul id="collapsible-addpuerta" class="collapsible col" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add_circle</i>Añadir puerta</div>
+                <div class="collapsible-body"><% include _form-puerta-nueva.ejs %></div>
+            </li>
+        </ul>
+
+        <div class="row">
+            <div class="col s1"></div>
+            <div class="col s10">
+                <table class="striped centered bordered">
+                    <thead>
+                        <tr>
+                            <th data-field="puertaid">ID</th>
+                            <th data-field="descripcion">Descripción</th>
+                            <th data-field="localizacion">Localización</th>
+                            <th>Editar</th>
+                            <th>Borrar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(puertas != null){ %>
+                            <% for(var i = 0; i < Object.keys(puertas).length; i++){ %>
+                                <tr>
+                                    <td><%= Object.keys(puertas)[i] %></td>
+                                    <td><%= puertas[Object.keys(puertas)[i]].descripcion %></td>
+                                    <td><%= puertas[Object.keys(puertas)[i]].localizacion %></td>
+                                    <td><a href="/puertas/edit/<%= Object.keys(puertas)[i] %>"><i class="material-icons">edit</i></a></td>
+                                    <td><a href="/puertas/delete/<%= Object.keys(puertas)[i] %>"><i class="material-icons">delete</i></a></td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col s1"></div>
+        </div>
+
+        <% include _footer.ejs %>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<form class="col s12" method="post" action="edituser">
+    <div class="row">
+        <div class="input-field col s6">
+          <input id="nombre" type="text" class="validate" name="nombre" value="<%= usuario.nombre %>">
+          <label for="nombre">Nombre</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="apellidos" type="text" class="validate" name="apellidos" value="<%= usuario.apellidos %>">
+          <label for="apellidos">Apellidos</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s4">
+          <input id="usuario" type="text" class="validate" name="usuario" value="<%= usuario.username %>">
+          <label for="usuario">Usuario</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="usuario-id" type="text" class="validate" name="usuarioid" value="<%= usuarioid %>">
+          <label for="usuario-id">ID tarjeta usuario</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="contrasena" type="password" class="validate" name="contrasena" value="<%= usuario.contrasena %>">
+          <label for="contrasena">Contraseña</label>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn waves-effect waves-light" onclick="limpiarCampos()">Cancelar
+            <i class="material-icons right">cancel</i>
+        </button>
+        <button class="btn waves-effect waves-light" type="submit">Añadir
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+</form>
+
+<script type="text/javascript">
+    function limpiarCampos(){
+        document.getElementById("nombre").value = "";
+        document.getElementById("apellidos").value = "";
+        document.getElementById("usuario").value = "";
+        document.getElementById("usuario-id").value = "";
+        document.getElementById("contrasena").value = "";
+    }
+</script>

@@ -1,0 +1,50 @@
+<!-- <form class="col s12" method="post" action="permisos">
+    <div class="row">
+        <div class="input-field col s6">
+          <input id="nombre" type="select" multiple class="validate" name="nombre">
+          <label for="nombre">Nombre</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="apellidos" type="select" multiple class="validate" name="apellidos">
+          <label for="apellidos">Apellidos</label>
+        </div>
+    </div>
+</div> -->
+
+<form class="col s12" method="post" action="permisos">
+    <input id="usuarioid2" type="hidden" class="validate" name="usuarioid" value="<%= usuarioid %>">
+    <div class="row">
+        <div class="input-field col s12">
+            <select multiple name="permisos">
+                <option value="" disabled selected>Selecciona las puertas autorizadas</option>
+                <% if(puertas != null){ %>
+                    <% for(var i = 0; i < Object.keys(puertas).length; i++){ %>
+
+                        <% if(usuario.permisos != null) { %>
+                            <% if(usuario.permisos[Object.keys(puertas)[i]] == "si"){ %>
+                                <option selected value="<%= Object.keys(puertas)[i] %>"><%= Object.keys(puertas)[i] %></option>
+                            <% }else{ %>
+                                <option value="<%= Object.keys(puertas)[i] %>"><%= Object.keys(puertas)[i] %></option>
+                            <% } %>
+                        <% }else{ %>
+                                <option value="<%= Object.keys(puertas)[i] %>"><%= Object.keys(puertas)[i] %></option>
+                            <% } %>
+
+                    <% } %>
+                <% } %>
+            </select>
+            <label>Puertas permitidas</label>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn waves-effect waves-light" type="submit">Modificar permisos
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+</form>
+
+<script>
+$(document).ready(function(){
+    $('select').material_select();
+});
+</script>

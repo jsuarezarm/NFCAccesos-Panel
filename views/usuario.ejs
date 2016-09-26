@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <% include _head.ejs %>
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/js/materialize.min.js"></script>
+
+        <% include _menu.ejs %>
+
+        <div id="usuario" class="pagsec">
+            <h1>Editar usuario</h1>
+        </div>
+
+        <div class="edit-form">
+            <h2>Datos personales</h2>
+            <% include _form-usuario-edit.ejs %>
+        </div>
+
+        <div class="edit-form">
+            <h2>Permisos</h2>
+            <% include _form-usuario-permisos.ejs %>
+        </div>
+
+        <% include _footer.ejs %>
+    </body>
+</html>

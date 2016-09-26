@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <% include _head.ejs %>
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/js/materialize.min.js"></script>
+
+        <% include _menu.ejs %>
+
+        <div id="usuarios" class="pagsec">
+            <h1>Usuarios</h1>
+        </div>
+
+        <ul id="collapsible-adduser" class="collapsible col" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">account_circle</i>Añadir usuario</div>
+                <div class="collapsible-body"><% include _form-usuario-nuevo.ejs %></div>
+            </li>
+        </ul>
+
+        <div class="row">
+            <div class="col s1"></div>
+            <div class="col s10">
+                <table class="striped centered bordered">
+                    <thead>
+                        <tr>
+                            <th data-field="userid">ID</th>
+                            <th data-field="usuario">Usuario</th>
+                            <th data-field="nombre">Nombre</th>
+                            <th data-field="apellidos">Apellidos</th>
+                            <th data-field="permisos">Permisos</th>
+                            <th>Editar</th>
+                            <th>Borrar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(usuarios != null){ %>
+                            <% for(var i = 0; i < Object.keys(usuarios).length; i++){ %>
+                                <tr>
+                                    <td><%= Object.keys(usuarios)[i] %></td>
+                                    <td><%= usuarios[Object.keys(usuarios)[i]].username %></td>
+                                    <td><%= usuarios[Object.keys(usuarios)[i]].nombre %></td>
+                                    <td><%= usuarios[Object.keys(usuarios)[i]].apellidos %></td>
+                                    <td>
+                                        <% if(usuarios[Object.keys(usuarios)[i]].permisos != null){ %>
+                                            <%= Object.keys(usuarios[Object.keys(usuarios)[i]].permisos) %>
+                                        <% } %>
+                                    </td>
+                                    <td><a href="/usuarios/edit/<%= Object.keys(usuarios)[i] %>"><i class="material-icons">edit</i></a></td>
+                                    <td><a href="/usuarios/delete/<%= Object.keys(usuarios)[i] %>"><i class="material-icons">delete</i></a></td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col s1"></div>
+        </div>
+
+
+        <% include _footer.ejs %>
+    </body>
+</html>
