@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var sessionController = require('../controllers/session_controller.js');
+
 var usuarios = require('../controllers/usuarios.js');
 allUsers = usuarios.getUsers();
 
@@ -94,5 +96,10 @@ router.get('/registro', function(req, res, next){
     int = registro.getvariable();
     res.render('registro', { intentos : int });
 });
+
+/* Rutas de sesion */
+router.get('/login', sessionController.new);
+router.post('/login', sessionController.create);
+router.get('/logout', sessionController.destroy);
 
 module.exports = router;

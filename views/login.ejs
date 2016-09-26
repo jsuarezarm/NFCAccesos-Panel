@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <% include _head.ejs %>
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/js/materialize.min.js"></script>
+
+        <% include _menu.ejs %>
+
+        <div id="iniciarsesion" class="pagsec">
+            <h1>Iniciar sesión</h1>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4"></div>
+            <div class="input-field col s4 edit-form">
+                <form method="POST" action="/login">
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input id="login" type="text" class="validate" name="login">
+                          <label for="login">Usuario</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input id="password" type="password" class="validate" name="password">
+                          <label for="password">Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn waves-effect waves-light" name="commit" type="submit">Entrar
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="input-field col s4"></div>
+        </div>
+
+        <% include _footer.ejs %>
+    </body>
+</html>

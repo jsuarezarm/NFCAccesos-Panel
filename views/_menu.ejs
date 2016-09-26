@@ -7,7 +7,13 @@
             <li><a href="/registro">Registro</a></li>
 
             <!-- Botón de login -->
-
+            <li>
+                <% if(!session.user){ %>
+                    <span><a href="/login">Iniciar sesión</a></span>
+                <% } else { %>
+                    <span><%= session.user.username %><a href="/logout">Cerrar sesión</a></span>
+                <% } %>
+            </li>
 
         </ul>
     </div>
