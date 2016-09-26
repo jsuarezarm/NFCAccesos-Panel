@@ -25,7 +25,8 @@ exports.create = function(req, res){
 
 exports.destroy = function(req, res){
     delete req.session.user;
-    res.redirect(req.session.redir.toString()); // Redirección a path anterior a login
+    // res.redirect(req.session.redir.toString()); // Redirección a path anterior a login
+    res.redirect('/');
 };
 
 exports.loginRequired = function(req, res, next){
