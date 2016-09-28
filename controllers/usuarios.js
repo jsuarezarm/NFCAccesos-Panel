@@ -40,7 +40,6 @@ exports.eliminar = function(req, res){
 exports.getUsuario = function(req, res){
     Usuario.findOne({_id: req.params.id}, function(err, usuario){
         Puerta.find(function(err, puertas){
-            console.log(puertas[0].id);
             res.render('usuario', {usuario : usuario, puertas : puertas});
         });
     });
@@ -61,14 +60,14 @@ exports.permisos = function(req, res){
     Usuario.findOne({id: req.body.usuarioid}, function(err, usuario){
         var tmp = {};
         if(req.body.permisos != null){
-            console.log(req.body.permisos);
-            console.log("Long: " + req.body.permisos.length);
-            // console.log("Long: " + Object.keys(req.body.permisos).length);
-            for(var i = 0; i < req.body.permisos.length; i++){
-                tmp[req.body.permisos[i]] = "si";
+            if(typeof(req.body.permisos) == "string"){ // Si solo se recibe un permiso (string)
+                tmp[req.body.permisos] = "si";
+            }else{ // Si se reciben varios permisos (array)
+                for(var i = 0; i < req.body.permisos.length; i++){
+                    tmp[req.body.permisos[i]] = "si";
+                }
             }
         }
-        console.log(tmp);
         usuario.permisos = tmp;
         usuario.save();
         res.redirect('/usuarios');
