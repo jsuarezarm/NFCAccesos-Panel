@@ -34,13 +34,13 @@
                     </thead>
                     <tbody>
                         <% if(puertas != null){ %>
-                            <% for(var i = 0; i < Object.keys(puertas).length; i++){ %>
+                            <% for(var i = 0; i < puertas.length; i++){ %>
                                 <tr>
-                                    <td><%= Object.keys(puertas)[i] %></td>
-                                    <td><%= puertas[Object.keys(puertas)[i]].descripcion %></td>
-                                    <td><%= puertas[Object.keys(puertas)[i]].localizacion %></td>
-                                    <td><a href="/puertas/edit/<%= Object.keys(puertas)[i] %>"><i class="material-icons">edit</i></a></td>
-                                    <td><a href="/puertas/delete/<%= Object.keys(puertas)[i] %>"><i class="material-icons">delete</i></a></td>
+                                    <td><%= puertas[i].id %></td>
+                                    <td><%= puertas[i].descripcion %></td>
+                                    <td><%= puertas[i].localizacion %></td>
+                                    <td><a href="/puertas/edit/<%= puertas[i]._id %>"><i class="material-icons">edit</i></a></td>
+                                    <td><a href="/puertas/delete/<%= puertas[i]._id %>"><i class="material-icons">delete</i></a></td>
                                 </tr>
                             <% } %>
                         <% } %>

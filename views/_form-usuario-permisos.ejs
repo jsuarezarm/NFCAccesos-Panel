@@ -12,23 +12,23 @@
 </div> -->
 
 <form class="col s12" method="post" action="permisos">
-    <input id="usuarioid2" type="hidden" class="validate" name="usuarioid" value="<%= usuarioid %>">
+    <input id="usuarioid2" type="hidden" class="validate" name="usuarioid" value="<%= usuario.id %>">
     <div class="row">
         <div class="input-field col s12">
             <select multiple name="permisos">
                 <option value="" disabled selected>Selecciona las puertas autorizadas</option>
                 <% if(puertas != null){ %>
-                    <% for(var i = 0; i < Object.keys(puertas).length; i++){ %>
+                    <% for(var i = 0; i < puertas.length; i++){ %>
 
                         <% if(usuario.permisos != null) { %>
-                            <% if(usuario.permisos[Object.keys(puertas)[i]] == "si"){ %>
-                                <option selected value="<%= Object.keys(puertas)[i] %>"><%= Object.keys(puertas)[i] %></option>
+                            <% if(usuario.permisos[puertas[i].id] == "si"){ %>
+                                <option selected value="<%= puertas[i].id %>"><%= puertas[i].id %></option>
                             <% }else{ %>
-                                <option value="<%= Object.keys(puertas)[i] %>"><%= Object.keys(puertas)[i] %></option>
+                                <option value="<%= puertas[i].id %>"><%= puertas[i].id %></option>
                             <% } %>
                         <% }else{ %>
-                                <option value="<%= Object.keys(puertas)[i] %>"><%= Object.keys(puertas)[i] %></option>
-                            <% } %>
+                            <option value="<%= puertas[i].id %>"><%= puertas[i].id %></option>
+                        <% } %>
 
                     <% } %>
                 <% } %>
