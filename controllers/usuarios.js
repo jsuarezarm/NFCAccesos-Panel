@@ -68,6 +68,11 @@ exports.permisos = function(req, res){
                 }
             }
         }
+        if(req.body.paneladmin){
+            usuario.paneladmin = true;
+        }else{
+            usuario.paneladmin = false;
+        }
         usuario.permisos = tmp;
         usuario.save();
         res.redirect('/usuarios');

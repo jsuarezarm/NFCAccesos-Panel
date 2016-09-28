@@ -30,6 +30,7 @@
                             <th data-field="nombre">Nombre</th>
                             <th data-field="apellidos">Apellidos</th>
                             <th data-field="permisos">Permisos</th>
+                            <th data-field="admin">Administrador</th>
                             <th>Editar</th>
                             <th>Borrar</th>
                         </tr>
@@ -45,6 +46,11 @@
                                     <td>
                                         <% if(usuarios[i].permisos != null){ %>
                                             <%= Object.keys(usuarios[Object.keys(usuarios)[i]].permisos) %>
+                                        <% } %>
+                                    </td>
+                                    <td>
+                                        <% if(usuarios[i].paneladmin){ %>
+                                            <i class="material-icons">check_circle</i>
                                         <% } %>
                                     </td>
                                     <td><a href="/usuarios/edit/<%= usuarios[i]._id %>"><i class="material-icons">edit</i></a></td>

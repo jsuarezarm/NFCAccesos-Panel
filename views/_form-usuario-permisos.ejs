@@ -14,7 +14,7 @@
 <form class="col s12" method="post" action="permisos">
     <input id="usuarioid2" type="hidden" class="validate" name="usuarioid" value="<%= usuario.id %>">
     <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s8">
             <select multiple name="permisos">
                 <option value="" disabled selected>Selecciona las puertas autorizadas</option>
                 <% if(puertas != null){ %>
@@ -34,6 +34,17 @@
                 <% } %>
             </select>
             <label>Puertas permitidas</label>
+        </div>
+        <div class="input-field col s4">
+            <% if(usuario.paneladmin != null) { %>
+                <% if(usuario.paneladmin){ %>
+                    <input type="checkbox" id="paneladmin" name="paneladmin" checked="checked">
+                    <label for="paneladmin">Administrador del sistema</label>
+                <% }else{ %>
+                    <input type="checkbox" id="paneladmin" name="paneladmin">
+                    <label for="paneladmin">Administrador del sistema</label>
+                <% } %>
+            <% } %>
         </div>
     </div>
     <div class="row">
