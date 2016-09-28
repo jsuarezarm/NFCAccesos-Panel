@@ -17,7 +17,8 @@ exports.create = function(req, res){
             return;
         }
 
-        req.session.user = { id : user.id, username : user.username };
+        // req.session.user = { id : user.id, username : user.username };
+        req.session.user = {username : user};
 
         res.redirect(req.session.redir.toString()); // Redirección a path anterior a login
     });
