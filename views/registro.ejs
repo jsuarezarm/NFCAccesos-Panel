@@ -34,7 +34,13 @@
                                     <td><%= tmp[8] + "" + tmp[9] + ":" + tmp[10] + "" + tmp[11] + ":" + tmp[12] + "" + tmp[13] %></td>
                                     <td><%= registro[i].usuario %></td>
                                     <td><%= registro[i].puerta %></td>
-                                    <td><%= registro[i].acierto %></td>
+                                    <td>
+                                        <% if(registro[i].acierto){ %>
+                                            <i class="material-icons">check_circle</i>
+                                        <% }else{ %>
+                                            <i class="material-icons">do_not_disturb_alt</i>
+                                        <% } %>
+                                    </td>
                                 </tr>
                             <% } %>
                         <% } %>

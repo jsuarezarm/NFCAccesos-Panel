@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Usuario = require('../models/usuario');
 var Puerta = require('../models/puerta');
+var Registro = require('../models/registro');
 
 var error = {'response' : 404};
 var error_400 = {'response' : 400};
@@ -76,5 +77,31 @@ exports.permisos = function(req, res){
         usuario.permisos = tmp;
         usuario.save();
         res.redirect('/usuarios');
+    });
+};
+
+/*** Abrir puerta ***/
+exports.abrirpuerta = function(req, res){
+    Usuario.findOne({id: req.body.usuarioid}, function(err, usuario){
+        // Enviar datos del usuario
+        res.send({
+            usuario: usuario.usuario,
+            nombre: usuario.nombre,
+            apellidos: usuario.apellidos,
+            permiso: usuario.permisos[req.body.puerta]
+        });
+
+        // Registrar intento de acceso
+        acierto_ = false;
+        if(usuario.permisos[req.body.puerta] == "si"){
+            acierto_ = true;
+        }
+        var registronuevo = new Registro({
+            fechayhora: req.body.fecha,
+            usuario: usuario.usuario,
+            puerta: req.body.puerta,
+            acierto: acierto_
+        });
+        registronuevo.save();
     });
 };

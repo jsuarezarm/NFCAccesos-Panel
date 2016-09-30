@@ -40,4 +40,7 @@ router.get('/login', sessionController.new);
 router.post('/login', sessionController.create);
 router.get('/logout', sessionController.destroy);
 
+/* Rutas para abrir las puertas */
+router.post('/abrirpuerta', usuarios.abrirpuerta);
+
 module.exports = router;
