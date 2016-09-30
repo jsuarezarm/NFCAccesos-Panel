@@ -85,11 +85,15 @@ exports.abrirpuerta = function(req, res){
     Usuario.findOne({id: req.body.usuarioid}, function(err, usuario){
         if(usuario != null){ // Usuarios registrados en el sistema
             // Enviar datos del usuario
+            perm = usuario.permisos[req.body.puerta];
+            if(usuario.permisos[req.body.puerta] == null){
+                perm = "no"
+            }
             res.send({
                 usuario: usuario.usuario,
                 nombre: usuario.nombre,
                 apellidos: usuario.apellidos,
-                permiso: usuario.permisos[req.body.puerta]
+                permiso: perm
             });
 
             // Registrar intento de acceso
