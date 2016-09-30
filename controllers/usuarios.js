@@ -83,25 +83,46 @@ exports.permisos = function(req, res){
 /*** Abrir puerta ***/
 exports.abrirpuerta = function(req, res){
     Usuario.findOne({id: req.body.usuarioid}, function(err, usuario){
-        // Enviar datos del usuario
-        res.send({
-            usuario: usuario.usuario,
-            nombre: usuario.nombre,
-            apellidos: usuario.apellidos,
-            permiso: usuario.permisos[req.body.puerta]
-        });
+        if(usuario != null){ // Usuarios registrados en el sistema
+            // Enviar datos del usuario
+            res.send({
+                usuario: usuario.usuario,
+                nombre: usuario.nombre,
+                apellidos: usuario.apellidos,
+                permiso: usuario.permisos[req.body.puerta]
+            });
 
-        // Registrar intento de acceso
-        acierto_ = false;
-        if(usuario.permisos[req.body.puerta] == "si"){
-            acierto_ = true;
+            // Registrar intento de acceso
+            acierto_ = false;
+            if(usuario.permisos[req.body.puerta] == "si"){
+                acierto_ = true;
+            }
+            var registronuevo = new Registro({
+                fechayhora: req.body.fecha,
+                usuario: usuario.usuario,
+                puerta: req.body.puerta,
+                acierto: acierto_
+            });
+            registronuevo.save();
+
+        }else{ // Usuarios desconocidos
+            // Enviar datos del usuario
+            res.send({
+                usuario: "desconocido",
+                nombre: "Usuario desconocido",
+                apellidos: "",
+                permiso: "no"
+            });
+
+            // Registrar intento de acceso
+            var registronuevo = new Registro({
+                fechayhora: req.body.fecha,
+                usuario: "desconocido",
+                puerta: req.body.puerta,
+                acierto: false
+            });
+            registronuevo.save();
         }
-        var registronuevo = new Registro({
-            fechayhora: req.body.fecha,
-            usuario: usuario.usuario,
-            puerta: req.body.puerta,
-            acierto: acierto_
-        });
-        registronuevo.save();
+
     });
 };
