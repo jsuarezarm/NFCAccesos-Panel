@@ -130,3 +130,12 @@ exports.abrirpuerta = function(req, res){
 
     });
 };
+
+/*** Obtener el identificador para simular la tarjeta ***/
+exports.obtenerid = function(req, res){
+    Usuario.findOne({usuario: req.body.usuario}, function(err, usuario){
+        if(usuario.id != null){
+            res.send(usuario.id);
+        }
+    });
+};

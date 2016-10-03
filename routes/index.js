@@ -42,5 +42,6 @@ router.get('/logout', sessionController.destroy);
 
 /* Rutas para abrir las puertas */
 router.post('/abrirpuerta', usuarios.abrirpuerta);
+router.post('/obtenerid', usuarios.obtenerid);
 
 module.exports = router;
